@@ -875,6 +875,10 @@ knot_gateway: $(BUILD_DIR)/buildroot-config/conf outputmakefile
 	@support/kconfig/merge_config.sh -m -O $(CONFIG_DIR) $(BR2_GATEWAY_HARDWARE) configs/knot_gateway_defconfig
 	@$(COMMON_CONFIG_ENV) $< --defconfig=$(CONFIG_DIR)/.config $(CONFIG_CONFIG_IN)
 
+knot_gateway_custom: $(BUILD_DIR)/buildroot-config/conf outputmakefile
+	@support/kconfig/merge_config.sh -m -O $(CONFIG_DIR) $(BR2_GATEWAY_HARDWARE) configs/knot_gateway_custom_defconfig
+	@$(COMMON_CONFIG_ENV) $< --defconfig=$(CONFIG_DIR)/.config $(CONFIG_CONFIG_IN)
+
 .PHONY: defconfig savedefconfig
 
 ################################################################################
